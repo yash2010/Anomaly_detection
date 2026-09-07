@@ -1,0 +1,6 @@
+/db.sqlite3
+/inputX_compressed.npz
+/labelX.npy
+/mlruns
+/results_automl
+/__pycache__

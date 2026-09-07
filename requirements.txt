@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+tensorflow
+scikit-learn
+umap-learn
+plotly
+mlflow
+optuna
