@@ -30,7 +30,7 @@ def save_path(model, encoder, base_dir, bottleneck_dim, suffix):
             encoder_filters.append(layer.filters)
     
     arch_str = "_".join(map(str, encoder_filters))
-    image_dir = os.path.join(base_dir, f"{arch_str}_D{bottleneck_dim}_with_{suffix} ")
+    image_dir = os.path.join(base_dir, f"{arch_str}_D{bottleneck_dim}_with_{suffix}")
     os.makedirs(image_dir, exist_ok=True)
 
     image_file = os.path.join(image_dir, "model.png")
@@ -330,7 +330,7 @@ def plotly_df(data, reduced, fft_labels, final_labels, reconst_error, anomalies,
 
     for folder, data_list in data.items():
         for label, (freq, fft_mag) in data_list:
-            match = re.search(r'\\(\d+)_', label)
+            match = re.search(r'[\\/](\d+)_', label)
             unique_ids.append(match.group(1) if match else None)
 
     for i in unique_ids:
@@ -431,20 +431,17 @@ def plot_signals(final_labels, X, cluster_anomalies, image_dir):
             anomaly = np.zeros(X.shape[1])
             axes[i, 2].set_title(f"Cluster {cluster_id} - No Anomalies")
         
-        axes[i, 3].plot(normal, color="green")
-        axes[i, 3].plot(mean_signal, color='black')
+        axes[i, 3].plot(mean_signal - normal, color="purple")
         axes[i, 3].set_title(f"Cluster {cluster_id} - Normal Diff (Mean - Normal)")
         axes[i, 3].grid(True)
 
-        axes[i, 4].plot(anomaly, color="red")
-        axes[i, 4].plot(mean_signal, color='black')
+        axes[i, 4].plot(mean_signal - anomaly, color="purple")
         axes[i, 4].set_title(f"Cluster {cluster_id} - Anomaly Diff (Mean - Anomaly)")
         axes[i, 4].grid(True)
 
         for j in range(5):
             axes[i, j].grid(True)
             axes[i, j].set_xlim(0, X.shape[1])
-            axes[i, j].set_ylim(0, 55)
 
     plt.tight_layout()
     

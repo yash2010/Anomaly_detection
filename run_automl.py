@@ -11,10 +11,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 
 from config import modelConfig, clusterConfig
-from src.data_loader import load_fft_data, preprocessing
 from src.model import autoencoder, get_latent_features, init_cluster_centers
 from src.train import fine_tuning
-from src.utils import save_path, plot_losses, plot_overall_reconstruction, Anomaly_detection_using_reconst_error, fine_tuned_latent, pretrained_latent, Reconstruction_error_distribution, anomalies_per_cluster, plotly_df, plot_signals
 import random
 
 # Set random seeds for reproducibility
