@@ -6,7 +6,7 @@
 
 ## What this is
 
-This is an experimentation version of an unsupervised anomaly detection pipeline for vibration data from a grinding wheel process. Samples are FFT magnitude spectra, grouped by tool/process identifier (recorded per dressing cycle/date).
+This is an experimental version of an unsupervised anomaly detection pipeline for vibration data from a grinding wheel process. Samples are FFT magnitude spectra, grouped by tool/process identifier (recorded per dressing cycle/date).
 
 The pipeline:
 1. Pretrains a 1D convolutional autoencoder (with U-Net-style skip connections) on the FFT spectra for reconstruction.
