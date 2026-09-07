@@ -1,4 +1,4 @@
-# Anomaly Detection Pipeline — Grinding Wheel Vibration Data
+# Anomaly Detection Pipeline for Sensor Based Grinding Process
 
 ## Data availability
 
