@@ -12,7 +12,7 @@ The pipeline:
 1. Pretrains a 1D convolutional autoencoder (with U-Net-style skip connections) on the FFT spectra for reconstruction.
 2. Extracts latent features and initializes cluster centers with K-Means.
 3. Fine-tunes the autoencoder jointly with an IDEC-style clustering-consistency loss (KL divergence to a sharpened target distribution) plus a repulsion term to keep cluster centers well separated.
-4. Uses per-cluster reconstruction-error thresholds to flag anomalies within a cluster (relative to its own group's typical behavior).
+4. Uses reconstruction error of each cluster to flag anomalies within a cluster (relative to its own group's typical behavior).
 
 This version is wired up with **MLflow** (experiment tracking) and **Optuna** (hyperparameter search via `run_automl.py`) so that multiple runs, across different hyperparameter combinations (bottleneck dimension, learning rate, repulsion weight, number of clusters), can be logged, compared, and reproduced. It's meant for generating and comparing results across parameter settings, not as a final, single fixed configuration.
 
